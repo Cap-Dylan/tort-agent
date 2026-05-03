@@ -44,7 +44,7 @@ Two modes share the same model and history but use different system prompts:
 
 | Mode | Prompt | Streaming | Tool calls | Use for |
 |---|---|---|---|---|
-| `/play` | The Arbiter Mentis (noir / Socratic / Stoic) | ✅ | ❌ | Conversation, philosophy, thinking-out-loud |
+| `/play` | The Arbiter Mentis (noir / Socratic / Stoic) | ✅ | ❌ | Conversation, philosophy, tutoring |
 | `/work` | Lean study-assistant prompt | ❌ (batch) | ✅ | Anything that needs a tool |
 
 The two-mode split came from a practical observation: streaming + tool-calling don't play nicely together when you also want to strip `<think>` blocks for display. Splitting the modes keeps each one robust and lets `/play` push the persona hard without compromising tool reliability in `/work`.
