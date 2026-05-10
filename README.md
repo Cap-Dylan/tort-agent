@@ -23,37 +23,37 @@ Local LLM agent with a two-mode interface — persona chat and tool-using study 
     └────────────────────┬───────────────────────────┬───────────────────┘
                          │                           │
     ┌────────────────────┴───────────────────────────┴───────────────────┐
-    │                      Inference (Ollama)                             │
+    │                      Inference (Ollama)                            │
     │                                                                    │
-    │   qwen3.6:35b-a3b (tower, RTX 4090)                               │
+    │   qwen3.6:35b-a3b (tower, RTX 4090)                                │
     │   qwen3.5:9b (MacBook, local dev)                                  │
     │                                                                    │
     │   Native tool_call support ──► TOOL_REGISTRY dispatch              │
-    └────────────────────────────────────┬──────────────────────────────┘
+    └────────────────────────────────────┬───────────────────────────────┘
                                          │
     ┌────────────────────────────────────┴──────────────────────────────┐
     │                      Tool Layer (tools.py)                        │
-    │                                                                    │
+    │                                                                   │
     │   morning_brief ──► wttr.in + Canvas API + vault scan             │
     │   export_apple_notes ──► AppleScript → iCloud staging             │
-    │   convert_notes ──► PyMuPDF → Apple Vision OCR → Ollama cleanup  │
-    │   develop_concepts ──► JSON extraction → 01-concepts/ with dedup │
+    │   convert_notes ──► PyMuPDF → Apple Vision OCR → Ollama cleanup   │
+    │   develop_concepts ──► JSON extraction → 01-concepts/ with dedup  │
     │   weekly_summary ──► tag-filtered scan → 05-logs/                 │
-    │   list_directory ──► vault navigation primitive                    │
-    │                                                                    │
+    │   list_directory ──► vault navigation primitive                   │
+    │                                                                   │
     │   All tools: read env → call API/fs → format via Ollama → return  │
     └────────────────────────────────────┬──────────────────────────────┘
                                          │
     ┌────────────────────────────────────┴──────────────────────────────┐
-    │                    Data Layer                                      │
-    │                                                                    │
+    │                    Data Layer                                     │
+    │                                                                   │
     │   Obsidian Vault (/Users/tortellini/tort-vault)                   │
     │   ├── 01-concepts/    atomic concept files with frontmatter       │
     │   ├── 03-courses/     per-course lecture notes                    │
     │   ├── 05-logs/        weekly summaries                            │
     │   ├── CLAUDE.md       vault conventions                           │
     │   └── _lessons.md     project-level lessons learned               │
-    │                                                                    │
+    │                                                                   │
     │   Canvas LMS API ──► assignment deadlines + grades                │
     │   Apple Notes (iCloud) ──► handwritten note PDFs                  │
     └───────────────────────────────────────────────────────────────────┘
